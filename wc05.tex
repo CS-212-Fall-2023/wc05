@@ -18,9 +18,10 @@
 \qformat{{\large\bf \thequestion. \thequestiontitle}\hfill}
 \boxedpoints
 
-
-%%%%%%%% Uncomment to include your solution.
-% \printanswers
+\usepackage{draftwatermark}
+\SetWatermarkText{Sample Solution}
+\SetWatermarkScale{3}
+\printanswers
 
 \begin{document}
 \maketitle
@@ -35,7 +36,15 @@
   \end{claim}
 
   \begin{solution}
-    
+    The language can be written more simply as $L = \{ w^i \mid w\in\{0,1\}^*, i \ge 2 \}$.
+    \begin{proof} We prove that the language is non-regular by using the pumping lemma.
+
+      Assume that $L$ is regular with a pumping length, $p$.\\
+      Consider $s = 1^p01^p0$.\\
+      Then $s\in L$ and $|s| > p$, so the pumping lemma can be applied on $s$.\\
+      Decomposing $s$ into $x, y,$ and $z$ as per the pumping lemma, $y=1^m$ where $1\le m \le p$.\\
+      Then $xy^0z = 1^{p-m}01^p0 \not\in L.\qquad \textcolor{red}{\bot}$
+    \end{proof}
   \end{solution}
   
 \end{questions}
